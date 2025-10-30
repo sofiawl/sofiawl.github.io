@@ -2,21 +2,6 @@
 
 ---
 
-| **Atividade** | **Link da Sessão** | **Níveis** | **Descrição** | **Faixa Etária** | **Por que você deveria escolher esta atividade?** |
-|----------------|--------------------|-------------|----------------|------------------|--------------------------------------------------|
-| 🧩 **Criptografia** | [https://studio.code.org/join/VXKKBF](https://studio.code.org/join/VXKKBF) | 5 | Aprenda sobre a arte de proteger mensagens secretas com a Cifra de César e substituição aleatória. Descubra a importância da criptografia na segurança digital. | 12 a 70 anos | Ideal para quem gosta de enigmas e lógica. Mostra como a criptografia protege suas senhas, dados e conversas online. |
-| 💡 **Laboratório de Aplicativos** | [https://studio.code.org/join/ZYBZSM](https://studio.code.org/join/ZYBZSM) | 15 | Introduz a criação de aplicativos interativos com botões, sons e imagens usando blocos de código ou JavaScript. | 10 a 70 anos | Perfeito para quem quer entender como aplicativos e sites funcionam e criar o próprio app. |
-| 🕹️ **Jogo Esportivo** | [https://studio.code.org/join/XPYFLN](https://studio.code.org/join/XPYFLN) | 8 | Ensina como os computadores respondem a eventos, como pressionar teclas, aplicando a lógica em jogos esportivos. | 10 a 60 anos | Ideal para quem gosta de games e quer entender a lógica por trás de suas ações. |
-| ⛏️ **Minecraft: Jornada do Herói** | [https://studio.code.org/join/SVLMSV](https://studio.code.org/join/SVLMSV) | 12 | Aprenda lógica de programação resolvendo desafios dentro do universo Minecraft. | 8 a 60 anos | Aprenda programação enquanto ajuda um herói em aventuras divertidas. |
-| 🎨 **Minecraft: Seja um Designer** | [https://studio.code.org/join/MVHQXH](https://studio.code.org/join/MVHQXH) | 12 | Crie e personalize mundos de Minecraft enquanto aprende conceitos de programação e design. | 8 a 60 anos | Ótimo para quem quer unir criatividade e raciocínio lógico. |
-| 🖼️ **Pixelização** | [https://studio.code.org/join/QCPYYR](https://studio.code.org/join/QCPYYR) | 7 | Descubra como imagens digitais são formadas a partir de pixels e cores. | 10 a 70 anos | Perfeito para quem quer entender o lado técnico da computação gráfica. |
-| 🐦 **Crie um Flappy Bird** | [https://studio.code.org/join/KKPDZT](https://studio.code.org/join/KKPDZT) | 10 | Crie o clássico jogo Flappy Bird, aprendendo sobre eventos, colisões e pontuação. | 10 a 65 anos | Ideal para quem quer entrar no mundo da criação de jogos. |
-| ❄️ **Programe com Anna e Elsa** | [https://studio.code.org/join/HHXGHV](https://studio.code.org/join/HHXGHV) | 20 | Aprenda conceitos de geometria e programação criando desenhos com as personagens de Frozen. | 10 a 70 anos | Excelente para quem quer aprender lógica de forma visual e artística. |
-| 🌌 **Star Wars: Construa uma Galáxia** | [https://studio.code.org/join/LFGRNW](https://studio.code.org/join/LFGRNW) | 15 | Crie um jogo no universo Star Wars usando blocos ou código JavaScript. | 11 a 70 anos | Desafie-se a programar com blocos e código real, no mundo de Star Wars. |
-| 🧬 **Simulador de Epidemia** | [https://studio.code.org/join/GMXMNX](https://studio.code.org/join/GMXMNX) | 9 | Desenvolva uma simulação que mostra como um vírus se espalha e como controlar o contágio. | 12 a 70 anos | Excelente para quem se interessa por ciência, biologia e programação aplicada. |
-
---- 
-
 ## 🧩 Criptografia  
 **Link da sessão:** [https://studio.code.org/join/VXKKBF](https://studio.code.org/join/VXKKBF)  
 **Níveis:** 5  
