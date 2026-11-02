@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sofia Lima</title>
+  <meta name="description" content="[One line about you.] A personal site routed by a slime mold.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&family=Newsreader:opsz@6..72&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/main.js"></script>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="slime" aria-hidden="true"></canvas>
+    <canvas id="math" aria-hidden="true"></canvas>
+    <nav id="pages" aria-label="Main"></nav>
+  </div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div id="lens" aria-hidden="true"></div>
+  <span id="lensLabel" aria-hidden="true"></span>
+
+  <header class="intro">
+    <p class="kicker">PHYSARUM.SITE · RUST → WASM · <span id="agents">…</span> AGENTS · NO MAP</p>
+    <div class="name-row">
+      <h1>sofia lima</h1>
+      <button id="who" class="who" type="button" aria-expanded="false" aria-controls="whoCard">who? <span aria-hidden="true">+</span></button>
+    </div>
+    <p class="lede">This menu was not designed. A slime mold found the shortest paths between the things I care about.</p>
+    <div id="whoCard" class="who-card" hidden>
+      <p class="hello">Hi, I'm Sofia.</p>
+      <p>[Role] at [Company]. I like [interest], [interest] and [interest]. Based in São Paulo.</p>
+    </div>
+  </header>
+
+  <a id="crumb" href="/">← <span class="dim">sofia lima /</span> <span id="crumbName"></span></a>
+
+  <section id="mathPanel" class="math-panel" hidden aria-label="Solver state">
+    <div class="row strong"><span>physarum solver</span><span id="iter">iter 0</span></div>
+    <p class="dim">Tero, Kobayashi, Nakagaki (2007, 2010) · convergence: Bonifaci, Mehlhorn, Varma (2012) · body: Jones (2010)</p>
+    <pre class="eq">Σⱼ (Dᵢⱼ/Lᵢⱼ)(pᵢ − pⱼ) = bᵢ
+Qᵢⱼ = (Dᵢⱼ/Lᵢⱼ)(pᵢ − pⱼ)
+dDᵢⱼ/dt = |Q|^1.8 / (1 + |Q|^1.8) − Dᵢⱼ</pre>
+    <p id="solverStats"></p>
+    <div id="food"></div>
+  </section>
+
+  <button id="toggle" class="toggle" type="button" aria-pressed="false">show the math</button>
+
+  <!-- The open panel. Each page is a <section data-page="…">; edit the content freely. -->
+  <aside id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <header class="sheet-head">
+      <p class="kicker" id="sheetKicker"></p>
+      <button id="close" class="ghost" type="button" aria-label="Close">esc ✕</button>
+    </header>
+
+    <section data-page="work">
+      <h2 tabindex="-1">work</h2>
+      <p class="sub">Where the organism spends most of its energy.</p>
+      <ol class="roles">
+        <li class="open">
+          <span class="when">[2024 to now]</span>
+          <div>
+            <h3>[Role] · <em>[Company]</em></h3>
+            <p>[What you do there, in one line.]</p>
+            <ul>
+              <li>[Impact, with a number]</li>
+              <li>[Something you built or led]</li>
+              <li>[A system, a team or a result]</li>
+            </ul>
+            <p class="tags"><span>[skill]</span><span>[skill]</span><span>[skill]</span></p>
+            <a href="#">read the case study →</a>
+          </div>
+          <span class="tube" style="--t: 10px" title="tube thickness = time spent"></span>
+        </li>
+        <li><span class="when">[2022 to 2024]</span><h3>[Role] · <em>[Company]</em></h3><span class="tube" style="--t: 7px"></span></li>
+        <li><span class="when">[2020 to 2022]</span><h3>[Role] · <em>[Company]</em></h3><span class="tube" style="--t: 5px"></span></li>
+        <li><span class="when">[2019]</span><h3>[Internship] · <em>[Company]</em></h3><span class="tube" style="--t: 3px"></span></li>
+      </ol>
+      <p class="foot"><span>bar thickness = time spent, like a tube</span><a href="/resume" data-go="resume">full history in the résumé →</a></p>
+    </section>
+
+    <section data-page="side-projects">
+      <h2 tabindex="-1">side projects</h2>
+      <p class="sub">Cultures I keep growing on evenings and weekends.</p>
+      <div class="cards">
+        <article class="card featured">
+          <div class="card-top"><span class="dish d1" aria-hidden="true"></span><span class="status alive">● alive</span></div>
+          <h3>physarum.site</h3>
+          <p>This website. A simulated slime mold routes the menu in real time.</p>
+          <p class="meta">Rust · WebAssembly · Web Workers</p>
+          <p class="links"><a href="#">code ↗</a><a href="/spores">how it works →</a></p>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="dish d2" aria-hidden="true"></span><span class="status alive">● alive</span></div>
+          <h3>[Project name]</h3>
+          <p>[One line: what it does and why it exists.]</p>
+          <p class="meta">[stack] · [stack]</p>
+          <p class="links"><a href="#">code ↗</a><a href="#">live ↗</a></p>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="dish d3" aria-hidden="true"></span><span class="status">◐ dormant</span></div>
+          <h3>[Project name]</h3>
+          <p>[One line: what it does and why it exists.]</p>
+          <p class="meta">[stack] · [stack]</p>
+          <p class="links"><a href="#">code ↗</a></p>
+        </article>
+        <article class="card archived">
+          <div class="card-top"><span class="dish d4" aria-hidden="true"></span><span class="status">○ archived</span></div>
+          <h3>[Project name]</h3>
+          <p>[One line, plus what you learned.]</p>
+          <p class="meta">[stack] · [year]</p>
+          <p class="links"><a href="#">write-up →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section data-page="spores">
+      <h2 tabindex="-1">spores</h2>
+      <p class="sub">Things I write and release into the world.</p>
+      <div class="filters" role="group" aria-label="Filter spores">
+        <button type="button" class="chip on" data-tag="all" aria-pressed="true">all</button>
+        <button type="button" class="chip" data-tag="engineering" aria-pressed="false">engineering</button>
+        <button type="button" class="chip" data-tag="research" aria-pressed="false">research</button>
+        <button type="button" class="chip" data-tag="life" aria-pressed="false">life</button>
+        <a class="rss" href="/feed.xml">rss ↗</a>
+      </div>
+      <a class="pinned" href="#" data-tags="engineering">
+        <span class="meta">[date] · engineering · 8 min · newest</span>
+        <span class="title">How a brainless cell routes this website</span>
+        <span class="excerpt">Kirchhoff's law, thousands of agents and a slime mold that can prove it found a short path. Why I wrote it in Rust, and what it costs your laptop.</span>
+      </a>
+      <ul class="posts">
+        <li data-tags="research"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>research</span><span>5 min</span></a></li>
+        <li data-tags="engineering"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>engineering</span><span>12 min</span></a></li>
+        <li data-tags="life"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>life</span><span>3 min</span></a></li>
+        <li data-tags="engineering"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>engineering</span><span>7 min</span></a></li>
+      </ul>
+    </section>
+
+    <section data-page="resume">
+      <h2 tabindex="-1">résumé</h2>
+      <div class="cv">
+        <div class="cv-view">
+          <div class="cv-bar">
+            <div role="tablist" aria-label="Résumé view" class="tabs">
+              <button type="button" role="tab" id="tabPdf" aria-selected="true" aria-controls="cvPdf">pdf</button>
+              <button type="button" role="tab" id="tabTex" aria-selected="false" aria-controls="cvTex">.tex source</button>
+            </div>
+            <a class="dim" href="/files/sofia-lima-resume.pdf" target="_blank" rel="noopener">open full size ↗</a>
+          </div>
+          <div id="cvPdf" role="tabpanel" aria-labelledby="tabPdf" class="pages-preview">
+            <a href="/files/sofia-lima-resume.pdf" target="_blank" rel="noopener" class="paper"><img src="/files/resume-page-1.png" alt="Résumé, page 1" loading="lazy"></a>
+          </div>
+          <div id="cvTex" role="tabpanel" aria-labelledby="tabTex" class="source" hidden><pre><code>loading…</code></pre></div>
+        </div>
+        <div class="cv-side">
+          <a class="dl primary" href="/files/sofia-lima-resume.pdf" download>
+            <b>↓ Download PDF</b><span id="pdfMeta">sofia-lima-resume.pdf</span>
+          </a>
+          <a class="dl" href="/files/resume.tex" download>
+            <b>↓ LaTeX source</b><span>resume.tex · compile it yourself</span>
+          </a>
+          <button type="button" class="ghost wide" id="copyLink">⧉ copy link to this page</button>
+          <div class="build">
+            <span class="dim">build</span>
+            <span>latexmk -pdf resume.tex</span>
+            <span id="buildInfo">pdfTeX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="hi">
+      <h2 tabindex="-1">say hi</h2>
+      <p class="note">[A little message. For example: I like hearing about strange systems, hard problems and good coffee. Write me.]</p>
+      <div class="contact">
+        <a href="mailto:[your email]" id="email">[your email]</a>
+        <button type="button" id="copyEmail">⧉ copy</button>
+      </div>
+      <div class="contact soft">
+        <a href="https://www.linkedin.com/in/[you]" target="_blank" rel="noopener">linkedin.com/in/[you]</a>
+        <span>open ↗</span>
+      </div>
+      <p class="foot"><span>I read everything. Replies in [n] days.</span></p>
+    </section>
+  </aside>
+
+  <noscript><p class="noscript">This site grows with JavaScript. Pages: <a href="/work">work</a>, <a href="/side-projects">side projects</a>, <a href="/spores">spores</a>, <a href="/resume">résumé</a>, <a href="/hi">say hi</a>.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,7 @@
+crate/target/
+crate/frames/
+resume/*.aux
+resume/*.log
+resume/*.fls
+resume/*.fdb_latexmk
+resume/resume.pdf

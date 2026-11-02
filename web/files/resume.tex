@@ -1,0 +1,61 @@
+% Sofia Lima, résumé.
+% Replace everything in [brackets]. Build: latexmk -pdf resume.tex
+% (The GitHub Action in .github/workflows/resume.yml rebuilds it on every push
+%  and copies the PDF + source into web/files/ for the site's download buttons.)
+
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt}
+\titleformat{\section}{\large\scshape}{}{0pt}{}[\vspace{-0.6ex}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1.4ex}{0.8ex}
+
+% \role{Title}{Dates}{Company}{City}
+\newcommand{\role}[4]{\textbf{#1}\hfill #2\\\textit{#3}\hfill\textit{#4}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\scshape Sofia Lima}\\[4pt]
+  [email] \;·\; \href{https://[website]}{[website]} \;·\; [github] \;·\; São Paulo, Brazil
+\end{center}
+
+\section{Experience}
+\role{[Role]}{[2024 -- present]}{[Company]}{[City]}
+\begin{itemize}
+  \item {[Impact, with a number]}
+  \item {[Something you built or led]}
+\end{itemize}
+
+\role{[Role]}{[2022 -- 2024]}{[Company]}{[City]}
+\begin{itemize}
+  \item {[Impact, with a number]}
+  \item {[Something you built or led]}
+\end{itemize}
+
+\role{[Role]}{[2020 -- 2022]}{[Company]}{[City]}
+\begin{itemize}
+  \item {[Impact, with a number]}
+\end{itemize}
+
+\section{Education}
+\textbf{[Degree], [Field]}\hfill [Year]\\
+\textit{[University]}
+
+\section{Selected projects}
+\textbf{physarum.site}, a personal site routed by a simulated slime mold.
+Rust, WebAssembly, Web Workers.\\
+\textbf{[Project]}, [one line].
+
+\section{Skills}
+\textbf{Languages:} [list] \;·\; \textbf{Tools:} [list] \;·\; \textbf{Spoken:} Portuguese, English
+
+\end{document}
