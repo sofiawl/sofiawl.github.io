@@ -351,10 +351,10 @@ body.shown #sheet { transform: none; }
 .tabs button { min-height: 32px; padding: 0 12px; border: 0; background: transparent; color: var(--text); font: inherit; font-size: 11px; cursor: pointer; }
 .tabs button[aria-selected='true'] { background: var(--vein); color: var(--sheet); }
 .pages-preview { display: flex; flex-direction: column; gap: 16px; }
-.paper { display: block; aspect-ratio: 8.5 / 11; background: #fff; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+.paper { display: block; aspect-ratio: 210 / 297; background: #fff; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
 .paper img { width: 100%; height: 100%; display: block; }
 .paper:hover { outline: 2px solid var(--vein); }
-.source { aspect-ratio: 8.5 / 11; overflow: auto; background: rgba(0, 0, 0, 0.35); }
+.source { aspect-ratio: 210 / 297; overflow: auto; background: rgba(0, 0, 0, 0.35); }
 .source pre { margin: 0; padding: 14px 16px; font: 11px/1.6 'JetBrains Mono', monospace; white-space: pre-wrap; }
 .cv-side { display: flex; flex-direction: column; gap: 14px; font-size: 12px; }
 .dl { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid rgba(247, 235, 176, 0.45); text-decoration: none; }

@@ -7,8 +7,8 @@ export const SEED = 'sofia';
 // weight is the default food.
 // `feed` names a function in feeds.js that turns real activity into food.
 export const PAGES = [
-  { id: 'work',          label: 'work',          x: 0.72, y: 0.19, px: 0.72, py: 0.36, weight: 1.2, feed: 'github', food: 'commits/14d' },
-  { id: 'side-projects', label: 'side projects', x: 0.92, y: 0.56, px: 0.78, py: 0.58, weight: 0.9, feed: null,     food: 'repos pushed' },
+  { id: 'work',          label: 'work',          x: 0.72, y: 0.19, px: 0.72, py: 0.36, weight: 1.2, feed: 'github', food: 'Kinebot pushes/14d' },
+  { id: 'side-projects', label: 'side projects', x: 0.92, y: 0.56, px: 0.78, py: 0.58, weight: 0.9, feed: 'sideRepos', food: 'pushes/14d' },
   { id: 'spores',        label: 'spores',        x: 0.67, y: 0.88, px: 0.70, py: 0.82, weight: 1.0, feed: 'notes',  food: 'post recency' },
   { id: 'resume',        label: 'résumé',        x: 0.40, y: 0.84, px: 0.30, py: 0.74, weight: 0.8, feed: null,     food: 'last pdf build' },
   { id: 'hi',            label: 'say hi',        x: 0.50, y: 0.49, px: 0.30, py: 0.50, weight: 0.6, feed: null,     food: 'inbox' },
@@ -16,7 +16,8 @@ export const PAGES = [
 // Each page opens at /<id>. Its content lives in index.html, in <section data-page="<id>">.
 
 // Optional live food sources (see feeds.js). Leave null to use the defaults above.
-export const GITHUB_USER = null; // e.g. 'your-github-username'
+export const GITHUB_USER = 'sofiawl';
+export const WORK_ORG = 'Kinebot';
 export const NOTES_FEED = null;  // e.g. '/spores/index.json' with [{date: '2026-10-30'}, ...]
 
 // Simulation size in cells (about 400 x 270 on a laptop). The shape follows the screen.

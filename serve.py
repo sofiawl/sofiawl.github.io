@@ -8,6 +8,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *a, **k):
         super().__init__(*a, directory=ROOT, **k)
 
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
     def send_head(self):
         path = self.translate_path(self.path)
         if not os.path.exists(path) and "." not in os.path.basename(self.path.split("?")[0]):

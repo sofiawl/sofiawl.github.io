@@ -1,61 +1,212 @@
-% Sofia Lima, résumé.
-% Replace everything in [brackets]. Build: latexmk -pdf resume.tex
-% (The GitHub Action in .github/workflows/resume.yml rebuilds it on every push
-%  and copies the PDF + source into web/files/ for the site's download buttons.)
-
-\documentclass[11pt]{article}
+\documentclass[10pt, a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=0.8in]{geometry}
-\usepackage{enumitem}
+\usepackage{charter}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage[a4paper, top=1.3cm, bottom=1.3cm, left=1.9cm, right=1.9cm]{geometry}
+\usepackage{xcolor}
 \usepackage{titlesec}
-\usepackage[hidelinks]{hyperref}
-
-\pagestyle{empty}
-\setlength{\parindent}{0pt}
-\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt}
-\titleformat{\section}{\large\scshape}{}{0pt}{}[\vspace{-0.6ex}\rule{\textwidth}{0.4pt}]
-\titlespacing*{\section}{0pt}{1.4ex}{0.8ex}
-
-% \role{Title}{Dates}{Company}{City}
-\newcommand{\role}[4]{\textbf{#1}\hfill #2\\\textit{#3}\hfill\textit{#4}}
-
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{etoolbox}
+\usepackage{array}
+\definecolor{accent}{HTML}{1B3A4B}
+\definecolor{soft}{HTML}{B0C4CC}
+\definecolor{muted}{HTML}{6B7C85}
+\definecolor{link}{HTML}{2E7DAF}
+\hypersetup{colorlinks=true, urlcolor=link, linkcolor=link}
+\titleformat{\section}
+    {\sffamily\large\bfseries\color{accent}}
+    {}{0em}{}
+    [\vspace{-0.4em}\color{soft}\rule{\linewidth}{0.5pt}\vspace{0.15em}]
+\titlespacing*{\section}{0pt}{0.5em}{0.2em}
+\newcommand{\entry}[4]{%
+    \begin{tabularx}{\linewidth}{@{}p{2.8cm}X@{}}
+        \parbox[t]{2.8cm}{\smash{\shortstack[l]{\small\color{muted}#1}}} & {\bfseries #2}\\[-0.05em]
+        & {\textit{\small\color{muted}#3}}%
+        \ifblank{#4}{}{\\[0.05em] & \small #4}%
+    \end{tabularx}%
+    \vspace{0.08em}%
+}
+\newcommand{\skill}[2]{%
+    \leavevmode
+    \makebox[2.8cm][l]{\small\color{muted}\textit{#1}}%
+    \begin{minipage}[t]{\dimexpr\linewidth-2.8cm\relax}%
+        \small #2
+    \end{minipage}\par\vspace{0.06em}%
+}
+\newcommand{\csep}{\quad{\color{soft}\textbf{|}}\quad}
 \begin{document}
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
 
+% ----- HEADER -----
 \begin{center}
-  {\LARGE\scshape Sofia Lima}\\[4pt]
-  [email] \;·\; \href{https://[website]}{[website]} \;·\; [github] \;·\; São Paulo, Brazil
+    {\sffamily\Huge\bfseries\color{accent} Sofia Wamser Lima}\\[0.35em]
+    {\sffamily\small\color{muted}
+        Computer Science \textbullet{} Universidade Federal do Paran\'a \textbullet{} Curitiba, Brazil}\\[0.4em]
+    {\small
+        \href{tel:+5541992810702}{+55 (41) 99281-0702}
+        \csep
+        \href{mailto:sofiawamserl@icloud.com}{sofiawamserl@icloud.com}
+        \csep
+        \href{https://github.com/sofiawl}{github.com/sofiawl}
+        \csep
+        \href{https://linkedin.com/in/sofia-wamser-lima-ba7362288}{linkedin/sofia-wamser-lima}
+    }
 \end{center}
+\vspace{-0.3em}
 
-\section{Experience}
-\role{[Role]}{[2024 -- present]}{[Company]}{[City]}
-\begin{itemize}
-  \item {[Impact, with a number]}
-  \item {[Something you built or led]}
-\end{itemize}
+% ----- ABOUT -----
+\section{About}
+\begin{tabularx}{\linewidth}{@{}p{2.8cm}X@{}}
+    {\small\color{muted}\textit{How I got here}} &
+    \small I came to computer science when I discovered the work of \href{https://en.wikipedia.org/wiki/Sofia_Crespo}{Sofia Crespo},
+    an artist who weaves together computation, art and ecology. That encounter sent me
+    down a long path of research into different technology fields, and I realised that
+    what truly fulfils me is studying hard problems and proposing creative solutions,
+    something common to all of them. The challenge of entering a field I knew nothing
+    about, and knowing it would transform the way I see the world, made the decision easy.
+\end{tabularx}
+\vspace{0.12em}
+\begin{tabularx}{\linewidth}{@{}p{2.8cm}X@{}}
+    {\small\color{muted}\textit{The present}} &
+    \small Artificial Intelligence and Computational Vision, and everything that
+    intersects them, from vision-language models to the architectures underneath,
+    are what excite me most; that intersection feels like where everything I want
+    to build converges. I am equally drawn to research and to technical leadership,
+    guiding a team's architecture and decisions, aligning people around a problem,
+    and turning research into something that ships. Outside of research, I am an avid reader and I am committed to social and community work. I enjoy a collaborative environment with
+    people from different fields; I learn as much from conversation and shared
+    experience with them as from any paper.
+\end{tabularx}
+\vspace{0.12em}
+\begin{tabularx}{\linewidth}{@{}p{2.8cm}X@{}}
+    {\small\color{muted}\textit{Where I am going}} &
+    \small I intend to pursue a Master's degree and a PhD, and/or study whatever
+    complementary field the project I am developing demands, while also building the
+    experience to one day work as a tech lead. My long-term goal is to create
+    something with genuine social and ecological impact in computer science, and to
+    choose problems where that impact is measurable, not assumed. 
+\end{tabularx}
 
-\role{[Role]}{[2022 -- 2024]}{[Company]}{[City]}
-\begin{itemize}
-  \item {[Impact, with a number]}
-  \item {[Something you built or led]}
-\end{itemize}
-
-\role{[Role]}{[2020 -- 2022]}{[Company]}{[City]}
-\begin{itemize}
-  \item {[Impact, with a number]}
-\end{itemize}
-
+% ----- EDUCATION -----
 \section{Education}
-\textbf{[Degree], [Field]}\hfill [Year]\\
-\textit{[University]}
+\entry{2024 -- 2027\\{\scriptsize\color{muted}expected}}
+      {B.Sc.\ Computer Science}
+      {Universidade Federal do Paran\'a (UFPR)}
+      {Focus on the multiple dimensions of computing, building a systemic perspective
+       for technical specialization. Oriented toward understanding different paradigms
+       and logic systems, from computer architecture to high-performance code
+       optimization, rather than mastering any single language.}
+\entry{2024 -- 2025}
+      {Training Program in Information and Communication Technology (Talento Tech-PR)}
+      {Universidade Estadual de Ponta Grossa (UEPG)}
+      {800-hour programme covering algorithms, Python, object-oriented
+       programming, software engineering fundamentals, databases, web and
+       mobile development, and data science/AI. Final project: developed a
+       full technical and commercial product from scratch, a medical
+       interoperability system addressing a critical structural problem in
+       the Brazilian health system. Completed a complementary 160h module on Artificial Intelligence.}
 
-\section{Selected projects}
-\textbf{physarum.site}, a personal site routed by a simulated slime mold.
-Rust, WebAssembly, Web Workers.\\
-\textbf{[Project]}, [one line].
+% ----- EXPERIENCE -----
+\section{Experience}\entry{Feb 2026 -- Present}
+      {\href{https://kinebot.com.br}{Kinebot}}
+      {Intern \textbullet{} AI \& ML}
+      {{\bfseries Built a RAG based LLM pipeline from scratch:} designed the
+       retrieval and prompting pipeline end to end, curated a 50 sample
+       evaluation dataset, and authored the quality reports used to validate
+       it. {\bfseries Refactored a legacy scoring system into a unified
+       pipeline:} redesigned the orchestration layer that merges several
+       sequential stages into one coherent flow, and modeled the production
+       schema by hand as ORM models, learning to keep a mirrored schema
+       consistent across services. {\bfseries Leading applied research on
+       extracting biomechanical measurements from video:} replaced one pose
+       estimation approach with a more robust one, integrated a vision
+       language model to resolve ambiguous multi person scenes, and
+       engineered a monocular distance estimation method validated against
+       ground truth measurements, while authoring the work as a formal
+       research report. {\bfseries Documentation practices:} organized and
+       established a consistent pattern for research, process, and
+       architecture documentation across the team, valuing documentation as
+       key to both effective group work and a healthy personal work life.
+       {\bfseries Organizational competencies:} grew through structured
+       readings, presentations, and one on one conversations with leadership.
+       Contributed to architecture discussions for a next generation routing
+       system inspired by a mixture of experts design. {\bfseries Led a
+       research reading and discussion club on ML, AI, and computer vision:}
+       designed the schedule as a chronological reading of the field's most
+       important papers, covering the perceptron, backpropagation, attention,
+       and many other topics, and moderated open discussions where each
+       participant brought a different source and perspective on a shared
+       theme, such as AI and learning, ethics, and data bias.}
+\entry{Aug 2025 --\\ Apr 2026}
+      {\href{https://ecomp.co}{Ecomp}, Empresa J\'unior de Computa\c{c}\~ao}
+      {Quality Assessor \textbullet{} UFPR}
+      {Software quality, DevOps and advanced GitHub workflows (Actions, PR review).
+       Applied agile methodology in team leadership and organisational management.}
 
+% ----- PROJECTS -----
+\section{Projects}
+\entry{Mar 2024 -- Present}
+      {\href{https://meninas.sbc.org.br/projetos-parceiros/}{concat(Gurias)}}
+      {General Coordinator \textbullet{} \href{https://sol.sbc.org.br/index.php/wit/index}{SBC} \textbullet{} Meninas Digitais \textbullet{} UFPR}
+      {Led fundraising for teammates to present at a national conference. Every moth develop events for schools or the faculty members to encourage women to choose and stay in STEAM fields.
+       Co-authored a paper nominated for Best Paper at
+       \href{https://sol.sbc.org.br/index.php/wit/index}{Women in Technology (SBC WIT 2025)}:
+       a statistical analysis of the project's impact on attracting women to computer science.
+       Organised an \href{https://code.org/en-US/hour-of-code}{Hour of Code} for 200 students at UFPR.}
+\entry{2025 -- Present}
+      {\href{https://web.inf.ufpr.br/vri/}{VRI} \textbullet{} Computational Vision for Runners}
+      {Research project \textbullet{} UFPR}
+      {Lead researcher on a computer vision programme modelling runner biomechanics, designing a novel \href{https://pages.cs.wisc.edu/~dyer/ai-qual/criminisi-iccv99.pdf}{Single View Metrology} method with QWEN organic lines and directing the literature review and validation architecture.}
+
+% ----- SKILLS -----
 \section{Skills}
-\textbf{Languages:} [list] \;·\; \textbf{Tools:} [list] \;·\; \textbf{Spoken:} Portuguese, English
+\skill{Languages}{C, C++, Python, Assembly, PHP, HTML, CSS, JavaScript}
+\skill{AI / Vision}{Machine Learning, Deep Learning, PyTorch (via Ultralytics/YOLO),
+    Computational Vision, YOLO, QWEN (VLM), LLMs, RAG systems, MoE, OpenRouter}
+\skill{Research}{Literature review, experimental design \& validation, model
+    benchmarking, statistical analysis, scientific/technical writing (\LaTeX)}
+\skill{Tools}{Git/GitHub, GitHub Actions, FastAPI, SQLAlchemy, Linux, REST APIs,
+    SQL\,(MariaDB, MySQL, PostgreSQL), DynamoDB, AWS S3, LocalStack, Docker,
+    pytest, Ruff, uv, Bruno}
+\skill{Practices}{Clean Code, Unit \& Integration Testing, DevOps, Agile methodologies}
+\skill{Soft Skills}{Creative problem-solving, Effective communication, Critical thinking, Proactivity, Fast learning, Resilience, Team leadership}
 
+% ----- LANGUAGES -----
+\section{Languages}
+\skill{Portuguese}{Native}
+\skill{English}{C1 \textbullet{} fluent, honors student at Phil Young's}
+\skill{French}{A2 \textbullet{} intermediate, self-taught and assessed by
+    \href{https://afcuritiba.com.br/}{Alliance Fran\c{c}aise};
+    aim to develop practical fluency through study abroad}
+\skill{Spanish}{A1 \textbullet{} basic}
+% ----- VOLUNTEERING -----
+\section{Volunteering \& Social Engagement}
+\entry{2022 -- Present}
+      {\href{https://champagnat.org/en/marist-mission/}{Marist Volunteer}}
+      {\href{https://magazine.marist.edu/w/story-power-of-philanthropy}{Marist Philanthropic Network}}
+      {Produced educational materials for low-income public schools and ran projects with children in vulnerable coastal communities and favelas. Designed and delivered an environmental-education workshop for primary-school students during a mission in Acre (Amazônia), and participated in the third Forum on Integral Ecology. Currently training to become a long-term volunteer abroad.}
+\entry{2024 -- Present}
+      {Founder, \textit{Sentar \`a Mesa}}
+      {Independent initiative \textbullet{}
+       \href{https://www.curitiba.pr.gov.br/noticias/mesa-solidaria-de-curitiba-alimenta-quem-precisa-com-refeicoes-gratuitas-e-dignidade/70833}{Mesa Solid\'aria}, Curitiba}
+      {Founded and led a project providing coffee and community support to people in vulnerable situations, designing an impact-measurement framework across food security, human welcoming, and organizational sustainability; scaled to serve 200 people and mobilize 15 volunteers per month.}
+       
+% ----- PUBLICATIONS -----
+\section{Publications}
+\entry{2025}
+      {Redes Sociais na Divulga\c{c}\~ao de uma Iniciativa por e para Mulheres na Computa\c{c}\~ao}
+      {\href{https://sol.sbc.org.br/index.php/wit/index}{Women in Technology --- SBC}
+       \textbullet{} \textit{Nominated for Best Paper}}
+      {\url{https://sol.sbc.org.br/index.php/wit/article/view/35985/35772}}
+
+\vspace{0.4em}
+\begin{center}
+    \scriptsize\color{muted}Last updated: \today
+\end{center}
 \end{document}
