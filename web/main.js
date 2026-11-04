@@ -1,6 +1,6 @@
 import { SEED, PAGES, SIM_CELLS, PALETTE, agentBudget } from './config.js';
 import { readFeeds } from './feeds.js';
-import { initPages } from './pages.js';
+import { initPages, refreshKicker } from './pages.js';
 
 const slime = document.getElementById('slime');
 const math = document.getElementById('math');
@@ -198,5 +198,6 @@ if (typeof WebAssembly === 'object' && 'Worker' in window) {
   readFeeds(PAGES, (i, w) => {
     weights[i] = w;
     worker?.postMessage({ type: 'weight', index: i, weight: food(i) });
+    refreshKicker();
   });
 }

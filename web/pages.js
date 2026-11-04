@@ -13,7 +13,6 @@ const sections = PAGES.map((p) => sheet.querySelector(`section[data-page="${p.id
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const narrow = () => matchMedia('(max-width: 720px)').matches;
 const SLIDE_MS = reduce ? 0 : 450;
-const PULSE_MS = reduce ? 0 : 280;
 
 let current = -1;
 let returnFocus = null;
@@ -53,7 +52,7 @@ function layout(i) {
 
 function fillKicker(i) {
   const p = PAGES[i];
-  kicker.textContent = `NODE 0${i + 1} · ${p.label.toUpperCase()} · FOOD ${ctx.weightOf(i).toFixed(2)} · ${p.food.toUpperCase()}`;
+  kicker.textContent = `${p.label.toUpperCase()} · FOOD ${ctx.weightOf(i).toFixed(2)} · ${p.food.toUpperCase()}`;
 }
 
 export function open(i, { push = true, instant = false } = {}) {
@@ -103,6 +102,7 @@ export function close({ push = true } = {}) {
 
 let resumeLoaded = false;
 const onOpen = {
+  spores: loadSpores,
   resume() {
     if (resumeLoaded) return;
     resumeLoaded = true;
@@ -145,17 +145,54 @@ function wireResume() {
   $('copyLink').addEventListener('click', (e) => copy(`${location.origin}/resume`, e.currentTarget, '✓ link copied'));
 }
 
-function wireSpores() {
-  const chips = [...sheet.querySelectorAll('.filters .chip')];
-  const items = [...sheet.querySelectorAll('section[data-page="spores"] [data-tags]')];
+// Spores come from /spores/index.json, written by tools/spores.py.
+let sporesLoaded = false;
+const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const when = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toLowerCase();
+
+function loadSpores() {
+  if (sporesLoaded) return;
+  sporesLoaded = true;
+  fetch('/spores/index.json')
+    .then((r) => (r.ok ? r.json() : []))
+    .catch(() => [])
+    .then(renderSpores);
+}
+
+function renderSpores(spores) {
+  const list = $('sporeList');
+  const filters = $('sporeFilters');
+  if (!spores.length) {
+    $('sporeEmpty').hidden = false;
+    return;
+  }
+  const tags = [...new Set(spores.map((s) => s.tag))];
+  filters.hidden = false;
+  filters.insertAdjacentHTML(
+    'afterbegin',
+    ['all', ...tags].map((t, k) => `<button type="button" class="chip${k ? '' : ' on'}" data-tag="${esc(t)}" aria-pressed="${!k}">${esc(t)}</button>`).join(''),
+  );
+  const [first, ...rest] = spores;
+  list.innerHTML =
+    `<a class="pinned" href="/spores/${esc(first.slug)}/" data-tags="${esc(first.tag)}">
+      <span class="meta">${when(first.date)} · ${esc(first.tag)} · ${first.minutes} min · newest</span>
+      <span class="title">${esc(first.title)}</span>
+      <span class="excerpt">${esc(first.summary)}</span>
+    </a>` +
+    (rest.length
+      ? `<ul class="posts">${rest
+          .map((s) => `<li data-tags="${esc(s.tag)}"><a href="/spores/${esc(s.slug)}/"><span>${when(s.date)}</span><span class="title">${esc(s.title)}</span><span>${esc(s.tag)}</span><span>${s.minutes} min</span></a></li>`)
+          .join('')}</ul>`
+      : '');
+  const chips = [...filters.querySelectorAll('.chip')];
+  const items = [...list.querySelectorAll('[data-tags]')];
   chips.forEach((chip) =>
     chip.addEventListener('click', () => {
       chips.forEach((c) => {
         c.classList.toggle('on', c === chip);
         c.setAttribute('aria-pressed', String(c === chip));
       });
-      const tag = chip.dataset.tag;
-      items.forEach((el) => (el.hidden = tag !== 'all' && !el.dataset.tags.split(' ').includes(tag)));
+      items.forEach((el) => (el.hidden = chip.dataset.tag !== 'all' && el.dataset.tags !== chip.dataset.tag));
     }),
   );
 }
@@ -180,12 +217,7 @@ export function initPages(context) {
       if (e.metaKey || e.ctrlKey || e.shiftKey) return; // let people open in a new tab
       e.preventDefault();
       if (current === i) return close();
-      ctx.setFood(i, 4);
-      a.classList.add('pulse');
-      setTimeout(() => {
-        a.classList.remove('pulse');
-        open(i);
-      }, PULSE_MS);
+      open(i);
     });
   });
 
@@ -233,7 +265,6 @@ export function initPages(context) {
 
   $('copyEmail').addEventListener('click', (e) => copy($('email').textContent.trim(), e.currentTarget, '✓ copied'));
   wireResume();
-  wireSpores();
 
   // Deep link: arrive straight into a page.
   const i = pathIndex();
@@ -241,3 +272,8 @@ export function initPages(context) {
 }
 
 export const isOpen = () => current >= 0;
+
+// Live food changed (feeds.js): keep the open panel's header honest.
+export function refreshKicker() {
+  if (current >= 0) fillKicker(current);
+}

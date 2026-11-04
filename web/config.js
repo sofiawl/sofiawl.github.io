@@ -18,7 +18,8 @@ export const PAGES = [
 // Optional live food sources (see feeds.js). Leave null to use the defaults above.
 export const GITHUB_USER = 'sofiawl';
 export const WORK_ORG = 'Kinebot';
-export const NOTES_FEED = null;  // e.g. '/spores/index.json' with [{date: '2026-10-30'}, ...]
+export const SIDE_REPOS = ['sofiawl/HER', 'VRI-UFPR/running'];
+export const NOTES_FEED = '/spores/index.json'; // written by tools/spores.py
 
 // Simulation size in cells (about 400 x 270 on a laptop). The shape follows the screen.
 export const SIM_CELLS = 108000;

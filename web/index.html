@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sofia Lima</title>
-  <meta name="description" content="[One line about you.] A personal site routed by a slime mold.">
+  <meta name="description" content="Sofia Lima, Computer Science student at UFPR. A personal site routed by a slime mold.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&family=Newsreader:opsz@6..72&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
   <span id="lensLabel" aria-hidden="true"></span>
 
   <header class="intro">
-    <p class="kicker">PHYSARUM.SITE · RUST → WASM · <span id="agents">…</span> AGENTS · NO MAP</p>
+    <p class="kicker">PHYSARUM.SITE · <span id="agents">…</span> AGENTS</p>
     <div class="name-row">
       <h1>sofia lima</h1>
       <button id="who" class="who" type="button" aria-expanded="false" aria-controls="whoCard">who? <span aria-hidden="true">+</span></button>
@@ -34,7 +34,7 @@
     </div>
   </header>
 
-  <a id="crumb" href="/">← <span class="dim">sofia lima /</span> <span id="crumbName"></span></a>
+  <a id="crumb" href="/"><span class="dim">sofia lima /</span> <span id="crumbName"></span></a>
 
   <section id="mathPanel" class="math-panel" hidden aria-label="Solver state">
     <div class="row strong"><span>physarum solver</span><span id="iter">iter 0</span></div>
@@ -64,50 +64,32 @@ dDᵢⱼ/dt = |Q|^1.8 / (1 + |Q|^1.8) − Dᵢⱼ</pre>
           <div>
             <h3>Intern, AI &amp; ML · <em>Kinebot</em></h3>
             <p>Applied research and production pipelines for biomechanics from video.</p>
-            <ul>
-              <li>Built a RAG-based LLM pipeline from scratch, validated on a 50-sample evaluation set.</li>
-              <li>Refactored a legacy scoring system into one unified pipeline.</li>
-              <li>Leading research on measuring biomechanics from video: pose estimation, a vision-language model and monocular distance.</li>
-            </ul>
             <p class="tags"><span>RAG</span><span>computer vision</span><span>Python</span></p>
+            <a href="https://kinebot.com.br/" target="_blank" rel="noopener">kinebot.com.br</a>
           </div>
           <span class="tube" style="--t: 10px" title="tube thickness = time spent"></span>
         </li>
       </ol>
-      <p class="foot"><span>bar thickness = time spent, like a tube</span><a href="/resume" data-go="resume">full history in the résumé →</a></p>
+      <p class="foot"><span>bar thickness = time spent, like a tube</span><a href="/resume" data-go="resume">full history in the résumé</a></p>
     </section>
 
     <section data-page="side-projects">
       <h2 tabindex="-1">side projects</h2>
-      <p class="sub">Cultures I keep growing on evenings and weekends.</p>
+      <p class="sub">Cultures I keep growing in my not-so-free time.</p>
       <div class="cards">
-        <article class="card featured">
+        <article class="card">
           <div class="card-top"><span class="dish d1" aria-hidden="true"></span><span class="status alive">● alive</span></div>
-          <h3>physarum.site</h3>
-          <p>This website. A simulated slime mold routes the menu in real time.</p>
-          <p class="meta">Rust · WebAssembly · Web Workers</p>
-          <p class="links"><a href="#">code ↗</a><a href="/spores">how it works →</a></p>
+          <h3>PaceMaker</h3>
+          <p>A computer vision project for runners and by runners.</p>
+          <p class="meta">VRI · UFPR · computer vision</p>
+          <p class="links"><a href="https://github.com/VRI-UFPR/running" target="_blank" rel="noopener">code</a></p>
         </article>
         <article class="card">
           <div class="card-top"><span class="dish d2" aria-hidden="true"></span><span class="status alive">● alive</span></div>
-          <h3>[Project name]</h3>
-          <p>[One line: what it does and why it exists.]</p>
-          <p class="meta">[stack] · [stack]</p>
-          <p class="links"><a href="#">code ↗</a><a href="#">live ↗</a></p>
-        </article>
-        <article class="card">
-          <div class="card-top"><span class="dish d3" aria-hidden="true"></span><span class="status">◐ dormant</span></div>
-          <h3>[Project name]</h3>
-          <p>[One line: what it does and why it exists.]</p>
-          <p class="meta">[stack] · [stack]</p>
-          <p class="links"><a href="#">code ↗</a></p>
-        </article>
-        <article class="card archived">
-          <div class="card-top"><span class="dish d4" aria-hidden="true"></span><span class="status">○ archived</span></div>
-          <h3>[Project name]</h3>
-          <p>[One line, plus what you learned.]</p>
-          <p class="meta">[stack] · [year]</p>
-          <p class="links"><a href="#">write-up →</a></p>
+          <h3>HER</h3>
+          <p>My personal agent kit for coding assistants: skills, always-on rules, memory and an orchestrator that works with any model.</p>
+          <p class="meta">Claude Code · Cursor · agents</p>
+          <p class="links"><a href="https://github.com/sofiawl/HER" target="_blank" rel="noopener">code</a></p>
         </article>
       </div>
     </section>
@@ -115,20 +97,15 @@ dDᵢⱼ/dt = |Q|^1.8 / (1 + |Q|^1.8) − Dᵢⱼ</pre>
     <section data-page="spores">
       <h2 tabindex="-1">spores</h2>
       <p class="sub">Things I write and release into the world.</p>
-      <div class="filters">
-        <a class="rss" href="/feed.xml">rss ↗</a>
+      <!-- Filled from /spores/index.json (made by tools/spores.py). -->
+      <div class="filters" role="group" aria-label="Filter spores" id="sporeFilters" hidden>
       </div>
-      <a class="pinned" href="#" data-tags="engineering">
-        <span class="meta">[date] · engineering · 8 min · newest</span>
-        <span class="title">How a brainless cell routes this website</span>
-        <span class="excerpt">Kirchhoff's law, thousands of agents and a slime mold that can prove it found a short path. Why I wrote it in Rust, and what it costs your laptop.</span>
-      </a>
-      <ul class="posts">
-        <li data-tags="research"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>research</span><span>5 min</span></a></li>
-        <li data-tags="engineering"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>engineering</span><span>12 min</span></a></li>
-        <li data-tags="life"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>life</span><span>3 min</span></a></li>
-        <li data-tags="engineering"><a href="#"><span>[date]</span><span class="title">[Spore title]</span><span>engineering</span><span>7 min</span></a></li>
-      </ul>
+      <div id="sporeList"></div>
+      <div class="spore-empty" id="sporeEmpty" hidden>
+        <span class="dish big" aria-hidden="true"></span>
+        <p class="count">0 spores released</p>
+        <p class="germ">The first one is germinating.</p>
+      </div>
     </section>
 
     <section data-page="resume">
@@ -140,7 +117,7 @@ dDᵢⱼ/dt = |Q|^1.8 / (1 + |Q|^1.8) − Dᵢⱼ</pre>
               <button type="button" role="tab" id="tabPdf" aria-selected="true" aria-controls="cvPdf">pdf</button>
               <button type="button" role="tab" id="tabTex" aria-selected="false" aria-controls="cvTex">.tex source</button>
             </div>
-            <a class="dim" href="/files/sofia-lima-resume.pdf" target="_blank" rel="noopener">open full size ↗</a>
+            <a class="dim" href="/files/sofia-lima-resume.pdf" target="_blank" rel="noopener">open full size</a>
           </div>
           <div id="cvPdf" role="tabpanel" aria-labelledby="tabPdf" class="pages-preview">
             <a href="/files/sofia-lima-resume.pdf" target="_blank" rel="noopener" class="paper"><img src="/files/resume-page-1.png" alt="Résumé, page 1" loading="lazy"></a>
@@ -149,10 +126,10 @@ dDᵢⱼ/dt = |Q|^1.8 / (1 + |Q|^1.8) − Dᵢⱼ</pre>
         </div>
         <div class="cv-side">
           <a class="dl primary" href="/files/sofia-lima-resume.pdf" download>
-            <b>↓ Download PDF</b><span id="pdfMeta">sofia-lima-resume.pdf</span>
+            <b>Download PDF</b><span id="pdfMeta">sofia-lima-resume.pdf</span>
           </a>
           <a class="dl" href="/files/resume.tex" download>
-            <b>↓ LaTeX source</b><span>resume.tex · compile it yourself</span>
+            <b>LaTeX source</b><span>resume.tex · compile it yourself</span>
           </a>
           <button type="button" class="ghost wide" id="copyLink">⧉ copy link to this page</button>
           <div class="build">
@@ -173,7 +150,7 @@ dDᵢⱼ/dt = |Q|^1.8 / (1 + |Q|^1.8) − Dᵢⱼ</pre>
       </div>
       <div class="contact soft">
         <a href="https://www.linkedin.com/in/sofia-wamser-lima-ba7362288/" target="_blank" rel="noopener">linkedin.com/in/sofia-wamser-lima-ba7362288</a>
-        <span>open ↗</span>
+        <a class="open" href="https://www.linkedin.com/in/sofia-wamser-lima-ba7362288/" target="_blank" rel="noopener">open</a>
       </div>
       <p class="foot"><span>I read everything. Replies in 3 days.</span></p>
     </section>

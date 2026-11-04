@@ -1,5 +1,5 @@
 // Real activity => food. Each feed returns a weight (roughly 0.4 to 2.0) or null.
-import { GITHUB_USER, WORK_ORG, NOTES_FEED } from './config.js';
+import { GITHUB_USER, WORK_ORG, SIDE_REPOS, NOTES_FEED } from './config.js';
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
@@ -11,8 +11,10 @@ async function pushesByKind() {
     if (!res.ok) return null;
     const since = Date.now() - 14 * 864e5;
     const pushes = (await res.json()).filter((e) => e.type === 'PushEvent' && Date.parse(e.created_at) > since);
-    const work = pushes.filter((e) => e.repo.name.toLowerCase().startsWith(`${WORK_ORG.toLowerCase()}/`)).length;
-    return { work, side: pushes.length - work };
+    const named = (e) => e.repo.name.toLowerCase();
+    const work = pushes.filter((e) => named(e).startsWith(`${WORK_ORG.toLowerCase()}/`)).length;
+    const side = pushes.filter((e) => SIDE_REPOS.some((r) => r.toLowerCase() === named(e))).length;
+    return { work, side };
   });
   return recentPushes;
 }
@@ -34,6 +36,7 @@ export const feeds = {
     const res = await fetch(NOTES_FEED);
     if (!res.ok) return null;
     const posts = await res.json();
+    if (!posts.length) return 0.4; // nothing released yet: a hungry, thin node
     const newest = Math.max(...posts.map((p) => Date.parse(p.date)));
     const days = (Date.now() - newest) / 864e5;
     return clamp(2.0 * Math.exp(-days / 60), 0.4, 2.0);
