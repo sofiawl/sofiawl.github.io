@@ -11,6 +11,7 @@ const kicker = $('sheetKicker');
 const crumbName = $('crumbName');
 const sections = PAGES.map((p) => sheet.querySelector(`section[data-page="${p.id}"]`));
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const unit = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--u')) || 1;
 const narrow = () => matchMedia('(max-width: 720px)').matches;
 const SLIDE_MS = reduce ? 0 : 450;
 
@@ -47,7 +48,7 @@ function layout(i) {
   const label = $('lensLabel');
   label.textContent = PAGES[i].label;
   label.style.left = `${fx * W + dx}px`;
-  label.style.top = `${fy * H + dy + (fy > 0.7 || narrow() ? -104 : 104)}px`;
+  label.style.top = `${fy * H + dy + (fy > 0.7 || narrow() ? -104 : 104) * unit()}px`;
 }
 
 function fillKicker(i) {

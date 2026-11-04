@@ -98,6 +98,7 @@ function drawMath({ stats, tubes }) {
     PAGES.map((p, i) => `<div class="feed"><span>${p.label}</span><span class="bar"><span style="width:${(weights[i] / max) * 100}%"></span></span><span>${weights[i].toFixed(2)}</span></div>`).join('');
 
   const dpr = devicePixelRatio || 1;
+  const unit = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--u')) || 1;
   if (math.width !== Math.round(innerWidth * dpr)) {
     math.width = Math.round(innerWidth * dpr);
     math.height = Math.round(innerHeight * dpr);
@@ -126,7 +127,7 @@ function drawMath({ stats, tubes }) {
     g.strokeStyle = i === source ? '#78e6ff' : 'rgba(247,235,176,0.8)';
     g.lineWidth = 2 * dpr;
     g.beginPath();
-    g.arc(spot(p)[0] * math.width, spot(p)[1] * math.height, (30 + weights[i] * 10) * dpr, 0, Math.PI * 2);
+    g.arc(spot(p)[0] * math.width, spot(p)[1] * math.height, (30 + weights[i] * 10) * unit * dpr, 0, Math.PI * 2);
     g.stroke();
   });
 }
