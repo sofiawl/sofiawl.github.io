@@ -1,0 +1,141 @@
+<title>SIGINT, 11 Nov 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root {
+  --paper: #f1f0f6;
+  --sheet: #fbfbfd;
+  --ink: #1c1a2e;
+  --muted: #5d5a75;
+  --rule: #d9d6e6;
+  --box: #d3236c;
+  --box-ink: #ffffff;
+  --cue: #0b8379;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14131d; --sheet: #1c1b28; --ink: #ecebf4; --muted: #a29fba;
+    --rule: #33314a; --box: #ff5a9b; --box-ink: #14131d; --cue: #45d3c4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #14131d; --sheet: #1c1b28; --ink: #ecebf4; --muted: #a29fba;
+  --rule: #33314a; --box: #ff5a9b; --box-ink: #14131d; --cue: #45d3c4; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.1rem/1.6 var(--text);
+  -webkit-text-size-adjust: 100%;
+}
+.wrap {
+  max-width: 42rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 2rem 4rem;
+  display: grid; gap: 3rem;
+}
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--box); outline-offset: 3px; border-radius: 2px; }
+.mono { font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+header { display: grid; gap: 0.6rem; }
+header .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--muted); }
+h1 {
+  margin: 0; font: 800 clamp(3.4rem, 17vw, 6.5rem)/0.85 var(--display);
+  letter-spacing: -0.045em; font-variation-settings: "opsz" 96;
+}
+h1 span { color: var(--box); }
+header p { margin: 0; color: var(--muted); font-style: italic; }
+.opener { position: relative; padding: 2.2rem 1.4rem 1.6rem; background: var(--sheet); border: 1.5px dashed var(--cue); }
+.opener .tag { position: absolute; top: -0.7rem; left: 1rem; background: var(--cue); color: var(--sheet); padding: 0.3rem 0.5rem; }
+.opener p { margin: 0; font-size: clamp(1.3rem, 5.2vw, 1.6rem); line-height: 1.42; text-wrap: pretty; }
+.opener p::first-letter {
+  float: left; font: 800 3.6em/0.8 var(--display); color: var(--cue);
+  margin: 0.08em 0.1em 0 0;
+}
+.opener .go { margin-top: 1.2rem; }
+h2 { margin: 0; display: flex; align-items: baseline; gap: 0.8rem; font: 700 1.6rem/1 var(--display); letter-spacing: -0.02em; }
+h2 .mono { color: var(--muted); font-weight: 500; }
+h2::after { content: ""; flex: 1; border-top: 1.5px solid var(--ink); transform: translateY(-0.3rem); }
+section { display: grid; gap: 2.4rem; }
+.top { display: grid; gap: 3rem; }
+.box {
+  position: relative; padding: 1.8rem 1.2rem 1.2rem;
+  --c: var(--box); --l: 18px; --w: 2.5px;
+  background:
+    linear-gradient(var(--c), var(--c)) top left / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) top left / var(--w) var(--l),
+    linear-gradient(var(--c), var(--c)) top right / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) top right / var(--w) var(--l),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--w) var(--l),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--w) var(--l),
+    var(--sheet);
+  background-repeat: no-repeat;
+}
+.box .tag {
+  position: absolute; top: 0; left: 0; transform: translateY(-100%);
+  background: var(--box); color: var(--box-ink); padding: 0.32rem 0.5rem 0.28rem;
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.box h3 { margin: 0 0 0.5rem; font: 700 1.55rem/1.1 var(--display); letter-spacing: -0.02em; text-wrap: balance; }
+.box p { margin: 0; }
+.go {
+  display: inline-flex; align-items: center; gap: 0.45rem; min-height: 44px; margin-top: 0.6rem;
+  font: 700 1rem/1 var(--display); text-decoration: none; color: var(--box);
+}
+.go span { transition: transform 0.2s; }
+.go:hover span, .go:focus-visible span { transform: translateX(4px); }
+.rest { list-style: none; margin: 0; padding: 0; display: grid; }
+.rest li { padding-block: 1rem 0.4rem; border-top: 1px solid var(--rule); display: grid; gap: 0.3rem; }
+.rest li:last-child { border-bottom: 1px solid var(--rule); }
+.rest h3 { margin: 0; font: 700 1.12rem/1.25 var(--display); letter-spacing: -0.01em; min-width: 0; overflow-wrap: anywhere; }
+.rest .src { color: var(--cue); }
+.rest p { margin: 0; font-size: 1.02rem; color: var(--ink); }
+.rest .go { margin-top: 0; font-size: 0.95rem; }
+footer { color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .go span { transition: none; } }
+</style>
+<div class="wrap">
+<header>
+<div class="meta mono"><span>Issue of 11 November 2026</span><span>17 stories</span></div>
+<h1>SIG<span>INT</span></h1>
+<p>Computer vision and AI, collected every fifteen days.</p>
+</header>
+<aside class="opener"><span class="tag mono">Did you know</span><p>Qwenputer runs a deterministic RISC-V CPU directly inside an LLM without external runtimes or fine-tuning. The mechanism uses Gated DeltaNet recurrent layers, where each head maintains a hidden state matrix that updates on every token. By setting the gate value and write strength to exactly 1, the layer stops forgetting previous states and overwrites stored values completely instead of blending them. One-hot key encodings then allow individual rows of the recurrent state matrix to function as exact, addressable RAM cells with constant memory overhead. A compiler maps CPU instructions into feed-forward math and attention lookups, letting standard next-token predictions step through compiled assembly code.</p><a class="go" href="https://divagr.com/blog/qwenputer" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></aside>
+<section>
+<h2>Top stories <span class="mono">4</span></h2>
+<div class="top">
+<article class="box"><span class="tag mono">Simon Willison</span><p>Anthropic released Fable 5.2 at $8 per million input tokens, a 20 percent discount over Fable 5.1. Cheaper input helps, but watch out for runaway token consumption in the highest reasoning tier.</p><a class="go" href="https://simonwillison.net/2026/Nov/9/llm-anthropic/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+<article class="box"><span class="tag mono">Google DeepMind</span><p>Google DeepMind released Gemini 4 Carbon at $2 per million input tokens and topped CursorBench 4.0. Keeping Argon pricing for frontier verification loops makes production agentic workflows far more viable.</p><a class="go" href="https://deepmind.google/blog/gemini-4-carbon-is-now-available/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+<article class="box"><span class="tag mono">Hacker News</span><p>Mistral released open weights for its one-trillion-parameter Large 4, which matched GLM-5.3 on coding with 47 percent fewer tokens. Self-hosters looking to lower inference bills for developer agents should test it immediately.</p><a class="go" href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+<article class="box"><span class="tag mono">Hacker News</span><p>OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel. Automated patch generation at this volume is rare, and kernel maintainers should take notice.</p><a class="go" href="https://openai.com/index/a-thousand-fewer-paths-to-root/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+</div>
+</section>
+<section>
+<h2>The rest <span class="mono">13</span></h2>
+<ul class="rest">
+<li><span class="src mono">Google DeepMind</span><p>Gemini Robotics 2.5 helped Apptronik&#x27;s Apollo 2 humanoid reach a 96 percent success rate on Mercedes-Benz assembly lines. Real factory reliability beats lab demos, and this production test is worth attention.</p><a class="go" href="https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>DeepMind released Genie 4, an interactive world model that pairs video and native audio with Gemini 3.8 Flash. Putting an LLM in the loop prevents the causality drift that ruins purely visual rollouts.</p><a class="go" href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>Wave Forcing achieved 134.8 end-to-end frames per second on eight H200 GPUs with staggered causal denoising across model replicas. Streaming video usually hits memory bottlenecks, so this pipeline design is well worth studying.</p><a class="go" href="https://arxiv.org/abs/2611.00859" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>LOWN cut diffusion VLM decoding compute to 35.3 percent and kept 99.6 percent of LLaDA-V accuracy without any retraining. Skipping redundant image steps is an easy win for teams deploying diffusion vision models.</p><a class="go" href="https://arxiv.org/abs/2610.36671" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>A 109-million-parameter text JEPA beat 72-billion-parameter language models on vision alignment while using 42 times fewer training samples. Next-token prediction looks like a remarkably inefficient path to multimodal representations.</p><a class="go" href="https://arxiv.org/abs/2610.39302" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>Tree-Ising edited BF16 weights via simulated annealing to lift Qwen3.5-2B greedy GSM8K accuracy from 21.6 to 69.4 percent for 90 cents. Direct parameter surgery without gradients or frontier agent prompts is surprisingly practical.</p><a class="go" href="https://arxiv.org/abs/2611.14210" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>Google released EmbeddingGemma 2 for text, audio, and video, and it outperformed specialist models up to twelve times larger. Selective modality loading and truncatable dimensions make it a great fit for tight hardware budgets.</p><a class="go" href="https://arxiv.org/abs/2610.37364" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Google DeepMind used AlphaProof Code to write six million lines of Lean and formally verify Signal&#x27;s implementation code. Machine-checked proofs on live production code are rare, and critical infrastructure teams should study the method.</p><a class="go" href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Moonshot AI released weights for Kimi K3.1 Pro, a 2.8-trillion-parameter MoE model that activates 104 billion parameters per token. High infrastructure demands aside, it provides a capable open alternative for teams evaluating 3T-class reasoning systems.</p><a class="go" href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Blender 5.3 was released with support for Gaussian Splats. Worth a download if your rendering pipeline touches radiance fields.</p><a class="go" href="https://www.blender.org/download/releases/5-3/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>OpenAI updated Images 2.6 with GIF creation, faster generation speeds, and refreshed API controls across ChatGPT and Codex. A welcome update if your products rely on their image endpoints and need tighter programmatic control.</p><a class="go" href="https://openai.com/index/introducing-images-2-6/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Ricursive Intelligence released Ripple-65B Preview, a dense model that scored 80.52 on TerminalBench 2.1 across a 32-million-dollar R&amp;D effort. Outperforming much larger models like Reflection Beam 501B keeps dense architectures relevant for agentic coding.</p><a class="go" href="https://www.ricursive.com/ripple" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>AMD guided fourth-quarter revenue to approximately $17 billion and expects to outsell Intel for the first time in history. Data center accelerator sales are carrying the entire company while PC and gaming segments shrink.</p><a class="go" href="https://www.tomshardware.com/pc-components/cpus/amd-expects-to-outsell-intel-in-q4-for-the-first-time-in-history-usd17b-guidance-would-exceed-intels-projections" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+</ul>
+</section>
+<footer class="mono">Next issue in 15 days</footer>
+</div>

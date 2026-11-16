@@ -1,0 +1,128 @@
+{
+  "date": "2026-11-11",
+  "opener": "Qwenputer runs a deterministic RISC-V CPU directly inside an LLM without external runtimes or fine-tuning. The mechanism uses Gated DeltaNet recurrent layers, where each head maintains a hidden state matrix that updates on every token. By setting the gate value and write strength to exactly 1, the layer stops forgetting previous states and overwrites stored values completely instead of blending them. One-hot key encodings then allow individual rows of the recurrent state matrix to function as exact, addressable RAM cells with constant memory overhead. A compiler maps CPU instructions into feed-forward math and attention lookups, letting standard next-token predictions step through compiled assembly code.",
+  "opener_url": "https://divagr.com/blog/qwenputer",
+  "top": [
+    {
+      "body": "Anthropic released Fable 5.2 at $8 per million input tokens, a 20 percent discount over Fable 5.1. Cheaper input helps, but watch out for runaway token consumption in the highest reasoning tier.",
+      "url": "https://simonwillison.net/2026/Nov/9/llm-anthropic/",
+      "label": "Read",
+      "source": "Simon Willison",
+      "title": "llm-anthropic 0.31"
+    },
+    {
+      "body": "Google DeepMind released Gemini 4 Carbon at $2 per million input tokens and topped CursorBench 4.0. Keeping Argon pricing for frontier verification loops makes production agentic workflows far more viable.",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+      "label": "Read",
+      "source": "Google DeepMind",
+      "title": "Gemini 4 Carbon is now available"
+    },
+    {
+      "body": "Mistral released open weights for its one-trillion-parameter Large 4, which matched GLM-5.3 on coding with 47 percent fewer tokens. Self-hosters looking to lower inference bills for developer agents should test it immediately.",
+      "url": "https://mistral.ai/news/mistral-large-4-oss/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "We're releasing the weights of Mistral Large 4"
+    },
+    {
+      "body": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel. Automated patch generation at this volume is rare, and kernel maintainers should take notice.",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "A thousand fewer paths to root"
+    }
+  ],
+  "rest": [
+    {
+      "body": "Gemini Robotics 2.5 helped Apptronik's Apollo 2 humanoid reach a 96 percent success rate on Mercedes-Benz assembly lines. Real factory reliability beats lab demos, and this production test is worth attention.",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+      "label": "Read",
+      "source": "Google DeepMind",
+      "title": "Gemini Robotics 2.5 accelerates real-world general dexterity"
+    },
+    {
+      "body": "DeepMind released Genie 4, an interactive world model that pairs video and native audio with Gemini 3.8 Flash. Putting an LLM in the loop prevents the causality drift that ruins purely visual rollouts.",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Genie 4"
+    },
+    {
+      "body": "Wave Forcing achieved 134.8 end-to-end frames per second on eight H200 GPUs with staggered causal denoising across model replicas. Streaming video usually hits memory bottlenecks, so this pipeline design is well worth studying.",
+      "url": "https://arxiv.org/abs/2611.00859",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation"
+    },
+    {
+      "body": "LOWN cut diffusion VLM decoding compute to 35.3 percent and kept 99.6 percent of LLaDA-V accuracy without any retraining. Skipping redundant image steps is an easy win for teams deploying diffusion vision models.",
+      "url": "https://arxiv.org/abs/2610.36671",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "Look Only When Needed: Certificate-Guided Visual Routing for Efficient Diffusion VLMs"
+    },
+    {
+      "body": "A 109-million-parameter text JEPA beat 72-billion-parameter language models on vision alignment while using 42 times fewer training samples. Next-token prediction looks like a remarkably inefficient path to multimodal representations.",
+      "url": "https://arxiv.org/abs/2610.39302",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "Proving and Improving the Platonic Representation Hypothesis with JEPAs"
+    },
+    {
+      "body": "Tree-Ising edited BF16 weights via simulated annealing to lift Qwen3.5-2B greedy GSM8K accuracy from 21.6 to 69.4 percent for 90 cents. Direct parameter surgery without gradients or frontier agent prompts is surprisingly practical.",
+      "url": "https://arxiv.org/abs/2611.14210",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "Tree-Ising: Repairing Language Models with Bit-Level Ising Edits"
+    },
+    {
+      "body": "Google released EmbeddingGemma 2 for text, audio, and video, and it outperformed specialist models up to twelve times larger. Selective modality loading and truncatable dimensions make it a great fit for tight hardware budgets.",
+      "url": "https://arxiv.org/abs/2610.37364",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "EmbeddingGemma 2: Unified and Efficient Multimodal Representations"
+    },
+    {
+      "body": "Google DeepMind used AlphaProof Code to write six million lines of Lean and formally verify Signal's implementation code. Machine-checked proofs on live production code are rare, and critical infrastructure teams should study the method.",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "AlphaProof Code"
+    },
+    {
+      "body": "Moonshot AI released weights for Kimi K3.1 Pro, a 2.8-trillion-parameter MoE model that activates 104 billion parameters per token. High infrastructure demands aside, it provides a capable open alternative for teams evaluating 3T-class reasoning systems.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Kimi K3.1 Pro model weights are out"
+    },
+    {
+      "body": "Blender 5.3 was released with support for Gaussian Splats. Worth a download if your rendering pipeline touches radiance fields.",
+      "url": "https://www.blender.org/download/releases/5-3/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Blender 5.3 released with Gaussian Splat support"
+    },
+    {
+      "body": "OpenAI updated Images 2.6 with GIF creation, faster generation speeds, and refreshed API controls across ChatGPT and Codex. A welcome update if your products rely on their image endpoints and need tighter programmatic control.",
+      "url": "https://openai.com/index/introducing-images-2-6/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Images 2.6"
+    },
+    {
+      "body": "Ricursive Intelligence released Ripple-65B Preview, a dense model that scored 80.52 on TerminalBench 2.1 across a 32-million-dollar R&D effort. Outperforming much larger models like Reflection Beam 501B keeps dense architectures relevant for agentic coding.",
+      "url": "https://www.ricursive.com/ripple",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding"
+    },
+    {
+      "body": "AMD guided fourth-quarter revenue to approximately $17 billion and expects to outsell Intel for the first time in history. Data center accelerator sales are carrying the entire company while PC and gaming segments shrink.",
+      "url": "https://www.tomshardware.com/pc-components/cpus/amd-expects-to-outsell-intel-in-q4-for-the-first-time-in-history-usd17b-guidance-would-exceed-intels-projections",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "AMD expects to outsell Intel in Q4 for the first time in history"
+    }
+  ]
+}
