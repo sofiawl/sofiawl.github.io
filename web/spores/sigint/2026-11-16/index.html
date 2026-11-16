@@ -1,0 +1,140 @@
+<title>SIGINT, 16 Nov 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root {
+  --paper: #f1f0f6;
+  --sheet: #fbfbfd;
+  --ink: #1c1a2e;
+  --muted: #5d5a75;
+  --rule: #d9d6e6;
+  --box: #d3236c;
+  --box-ink: #ffffff;
+  --cue: #0b8379;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14131d; --sheet: #1c1b28; --ink: #ecebf4; --muted: #a29fba;
+    --rule: #33314a; --box: #ff5a9b; --box-ink: #14131d; --cue: #45d3c4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #14131d; --sheet: #1c1b28; --ink: #ecebf4; --muted: #a29fba;
+  --rule: #33314a; --box: #ff5a9b; --box-ink: #14131d; --cue: #45d3c4; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.1rem/1.6 var(--text);
+  -webkit-text-size-adjust: 100%;
+}
+.wrap {
+  max-width: 42rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 2rem 4rem;
+  display: grid; gap: 3rem;
+}
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--box); outline-offset: 3px; border-radius: 2px; }
+.mono { font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+header { display: grid; gap: 0.6rem; }
+header .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--muted); }
+h1 {
+  margin: 0; font: 800 clamp(3.4rem, 17vw, 6.5rem)/0.85 var(--display);
+  letter-spacing: -0.045em; font-variation-settings: "opsz" 96;
+}
+h1 span { color: var(--box); }
+header p { margin: 0; color: var(--muted); font-style: italic; }
+.opener { position: relative; padding: 2.2rem 1.4rem 1.6rem; background: var(--sheet); border: 1.5px dashed var(--cue); }
+.opener .tag { position: absolute; top: -0.7rem; left: 1rem; background: var(--cue); color: var(--sheet); padding: 0.3rem 0.5rem; }
+.opener p { margin: 0; font-size: clamp(1.3rem, 5.2vw, 1.6rem); line-height: 1.42; text-wrap: pretty; }
+.opener p::first-letter {
+  float: left; font: 800 3.6em/0.8 var(--display); color: var(--cue);
+  margin: 0.08em 0.1em 0 0;
+}
+.opener .go { margin-top: 1.2rem; }
+h2 { margin: 0; display: flex; align-items: baseline; gap: 0.8rem; font: 700 1.6rem/1 var(--display); letter-spacing: -0.02em; }
+h2 .mono { color: var(--muted); font-weight: 500; }
+h2::after { content: ""; flex: 1; border-top: 1.5px solid var(--ink); transform: translateY(-0.3rem); }
+section { display: grid; gap: 2.4rem; }
+.top { display: grid; gap: 3rem; }
+.box {
+  position: relative; padding: 1.8rem 1.2rem 1.2rem;
+  --c: var(--box); --l: 18px; --w: 2.5px;
+  background:
+    linear-gradient(var(--c), var(--c)) top left / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) top left / var(--w) var(--l),
+    linear-gradient(var(--c), var(--c)) top right / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) top right / var(--w) var(--l),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) bottom left / var(--w) var(--l),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--l) var(--w),
+    linear-gradient(var(--c), var(--c)) bottom right / var(--w) var(--l),
+    var(--sheet);
+  background-repeat: no-repeat;
+}
+.box .tag {
+  position: absolute; top: 0; left: 0; transform: translateY(-100%);
+  background: var(--box); color: var(--box-ink); padding: 0.32rem 0.5rem 0.28rem;
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.box h3 { margin: 0 0 0.5rem; font: 700 1.55rem/1.1 var(--display); letter-spacing: -0.02em; text-wrap: balance; }
+.box p { margin: 0; }
+.go {
+  display: inline-flex; align-items: center; gap: 0.45rem; min-height: 44px; margin-top: 0.6rem;
+  font: 700 1rem/1 var(--display); text-decoration: none; color: var(--box);
+}
+.go span { transition: transform 0.2s; }
+.go:hover span, .go:focus-visible span { transform: translateX(4px); }
+.rest { list-style: none; margin: 0; padding: 0; display: grid; }
+.rest li { padding-block: 1rem 0.4rem; border-top: 1px solid var(--rule); display: grid; gap: 0.3rem; }
+.rest li:last-child { border-bottom: 1px solid var(--rule); }
+.rest h3 { margin: 0; font: 700 1.12rem/1.25 var(--display); letter-spacing: -0.01em; min-width: 0; overflow-wrap: anywhere; }
+.rest .src { color: var(--cue); }
+.rest p { margin: 0; font-size: 1.02rem; color: var(--ink); }
+.rest .go { margin-top: 0; font-size: 0.95rem; }
+footer { color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .go span { transition: none; } }
+</style>
+<div class="wrap">
+<header>
+<div class="meta mono"><span>Issue of 16 November 2026</span><span>16 stories</span></div>
+<h1>SIG<span>INT</span></h1>
+<p>Computer vision and AI, collected every fifteen days.</p>
+</header>
+<aside class="opener"><span class="tag mono">Did you know</span><p>Weight-space programming repairs model behavior without gradient descent by treating network weights as code to be inspected and modified directly. In practice, forward pass activations define a vector direction for repetitive failure loops and a contrasting direction for productive steps. Edits are then constrained to discrete bit-level adjustments, like flipping signs or shifting exponents in BF16 numbers, which directly weaken the undesirable activation trajectories. Because row-wise changes decouple cleanly, the entire intervention solves as independent discrete optimization problems without backpropagation or fine-tuning datasets.</p><a class="go" href="https://arxiv.org/abs/2611.14210" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></aside>
+<section>
+<h2>Top stories <span class="mono">4</span></h2>
+<div class="top">
+<article class="box"><span class="tag mono">Hacker News</span><p>Jensen Huang has resigned. Watch closely if your stack depends on his company&#x27;s hardware roadmap.</p><a class="go" href="https://apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+<article class="box"><span class="tag mono">Hacker News</span><p>Claude Fable 5.2 generates outputs up to 30% faster than version 5.1 at $8 per million input tokens. Test it if Opus 5.5 struggles with your most demanding coding workflows.</p><a class="go" href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+<article class="box"><span class="tag mono">Hacker News</span><p>OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel. Kernel maintainers should care, even if automated patches still require manual review.</p><a class="go" href="https://openai.com/index/a-thousand-fewer-paths-to-root/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></article>
+<article class="box"><span class="tag mono">Simon Willison</span><p>Google released Gemini Decision 1 with support for video and PDF inputs at 10 cents per million tokens. Useful if you need quick classification outputs without parsing free-form model text.</p><a class="go" href="https://simonwillison.net/2026/Nov/11/gemini-decisions-api/" target="_blank" rel="noopener">Link <span aria-hidden="true">&rarr;</span></a></article>
+</div>
+</section>
+<section>
+<h2>The rest <span class="mono">12</span></h2>
+<ul class="rest">
+<li><span class="src mono">Google DeepMind</span><p>On Mercedes-Benz assembly lines, Gemini Robotics 2.5 helped an Apollo 2 humanoid hit a 96% success rate on automotive kitting. Worth tracking if you deploy physical robots in production.</p><a class="go" href="https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>Wave Forcing hit 134.8 end-to-end frames per second for video generation on eight H200 GPUs. Worth examining if you build interactive video pipelines and need low-latency streaming.</p><a class="go" href="https://arxiv.org/abs/2611.00859" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">HF Daily Papers</span><p>SplatAnything introduces a spacing normalization technique that stabilizes feed-forward Gaussian splat prediction across varying camera distances. Relevant if your 3D reconstruction pipeline struggles with scale shifts between sparse views.</p><a class="go" href="https://arxiv.org/abs/2611.08264" target="_blank" rel="noopener">Paper <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Rust 1.100 officially stabilized the never type after ten years of attempts and introduced the initial Allocator trait. Systems programmers finally get cleaner control over non-returning functions and custom allocations.</p><a class="go" href="https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>DeepMind used AI agents to formally verify Signal&#x27;s cryptographic protocol by producing six million lines of Lean code in four weeks. A significant milestone for high-assurance security if the verification technique scales.</p><a class="go" href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Moonshot AI released weights for Kimi K3.1 Pro, an MoE model with 2.8 trillion parameters and 104 billion active parameters. Useful for teams with cluster hardware exploring large open agent models.</p><a class="go" href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener">Link <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Blender 5.3 shipped with built-in support for Gaussian splats. 3D artists and real-time VFX pipelines can now integrate neural scene captures directly into standard rendering workflows.</p><a class="go" href="https://www.blender.org/download/releases/5-3/" target="_blank" rel="noopener">Link <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>The llama-modchip runtime fits the 284B DeepSeek-V4-Flash model into 64GB of system RAM without a GPU using custom quantization formats. Practical for local experimenters who cannot afford multi-card datacenter setups.</p><a class="go" href="https://github.com/synchopate/llama-modchip" target="_blank" rel="noopener">Link <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>OpenAI rolled out Images 2.6 with GIF generation and new editing controls across ChatGPT and its API. Handy if programmatic image editing is part of your application pipeline.</p><a class="go" href="https://openai.com/index/introducing-images-2-6/" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hacker News</span><p>Ricursive Intelligence spent $32 million to train Ripple-65B Preview, reaching an 80.52 score on TerminalBench 2.1. A sharp alternative to MoE setups if you need strong coding performance on local workstations.</p><a class="go" href="https://www.ricursive.com/ripple" target="_blank" rel="noopener">Link <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Hugging Face blog</span><p>The llama.cpp and ggml libraries reached version 1.0.0 and adopted strict semantic versioning for their public C APIs. A welcome change for downstream maintainers tired of sudden interface breaks.</p><a class="go" href="https://huggingface.co/blog/ggml-org/llama-cpp-v1" target="_blank" rel="noopener">Read <span aria-hidden="true">&rarr;</span></a></li>
+<li><span class="src mono">Simon Willison</span><p>AWS released an official Rust-based service emulator, developed using an agent swarm that produced 29,684 commits in three weeks. Worth integrating into your local CI pipeline to avoid paid cloud sandboxes.</p><a class="go" href="https://simonwillison.net/2026/Nov/11/aws-emulator/" target="_blank" rel="noopener">Link <span aria-hidden="true">&rarr;</span></a></li>
+</ul>
+</section>
+<footer class="mono">Next issue in 15 days</footer>
+</div>

@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-16",
+  "opener": "Weight-space programming repairs model behavior without gradient descent by treating network weights as code to be inspected and modified directly. In practice, forward pass activations define a vector direction for repetitive failure loops and a contrasting direction for productive steps. Edits are then constrained to discrete bit-level adjustments, like flipping signs or shifting exponents in BF16 numbers, which directly weaken the undesirable activation trajectories. Because row-wise changes decouple cleanly, the entire intervention solves as independent discrete optimization problems without backpropagation or fine-tuning datasets.",
+  "opener_url": "https://arxiv.org/abs/2611.14210",
+  "top": [
+    {
+      "body": "Jensen Huang has resigned. Watch closely if your stack depends on his company's hardware roadmap.",
+      "url": "https://apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Jensen Huang resigns"
+    },
+    {
+      "body": "Claude Fable 5.2 generates outputs up to 30% faster than version 5.1 at $8 per million input tokens. Test it if Opus 5.5 struggles with your most demanding coding workflows.",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Claude Fable 5.2 and Mythos 5.2"
+    },
+    {
+      "body": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel. Kernel maintainers should care, even if automated patches still require manual review.",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "A thousand fewer paths to root"
+    },
+    {
+      "body": "Google released Gemini Decision 1 with support for video and PDF inputs at 10 cents per million tokens. Useful if you need quick classification outputs without parsing free-form model text.",
+      "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
+      "label": "Link",
+      "source": "Simon Willison",
+      "title": "Gemini Decisions API"
+    }
+  ],
+  "rest": [
+    {
+      "body": "On Mercedes-Benz assembly lines, Gemini Robotics 2.5 helped an Apollo 2 humanoid hit a 96% success rate on automotive kitting. Worth tracking if you deploy physical robots in production.",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+      "label": "Read",
+      "source": "Google DeepMind",
+      "title": "Gemini Robotics 2.5 accelerates real-world general dexterity"
+    },
+    {
+      "body": "Wave Forcing hit 134.8 end-to-end frames per second for video generation on eight H200 GPUs. Worth examining if you build interactive video pipelines and need low-latency streaming.",
+      "url": "https://arxiv.org/abs/2611.00859",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation"
+    },
+    {
+      "body": "SplatAnything introduces a spacing normalization technique that stabilizes feed-forward Gaussian splat prediction across varying camera distances. Relevant if your 3D reconstruction pipeline struggles with scale shifts between sparse views.",
+      "url": "https://arxiv.org/abs/2611.08264",
+      "label": "Paper",
+      "source": "HF Daily Papers",
+      "title": "SplatAnything: Gaussian Spacing Normalization for Feed-forward 3DGS across Arbitrary Scenes"
+    },
+    {
+      "body": "Rust 1.100 officially stabilized the never type after ten years of attempts and introduced the initial Allocator trait. Systems programmers finally get cleaner control over non-returning functions and custom allocations.",
+      "url": "https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Rust 1.100"
+    },
+    {
+      "body": "DeepMind used AI agents to formally verify Signal's cryptographic protocol by producing six million lines of Lean code in four weeks. A significant milestone for high-assurance security if the verification technique scales.",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "AlphaProof Code"
+    },
+    {
+      "body": "Moonshot AI released weights for Kimi K3.1 Pro, an MoE model with 2.8 trillion parameters and 104 billion active parameters. Useful for teams with cluster hardware exploring large open agent models.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "label": "Link",
+      "source": "Hacker News",
+      "title": "Kimi K3.1 Pro model weights are out"
+    },
+    {
+      "body": "Blender 5.3 shipped with built-in support for Gaussian splats. 3D artists and real-time VFX pipelines can now integrate neural scene captures directly into standard rendering workflows.",
+      "url": "https://www.blender.org/download/releases/5-3/",
+      "label": "Link",
+      "source": "Hacker News",
+      "title": "Blender 5.3 released with Gaussian Splat support"
+    },
+    {
+      "body": "The llama-modchip runtime fits the 284B DeepSeek-V4-Flash model into 64GB of system RAM without a GPU using custom quantization formats. Practical for local experimenters who cannot afford multi-card datacenter setups.",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "label": "Link",
+      "source": "Hacker News",
+      "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU"
+    },
+    {
+      "body": "OpenAI rolled out Images 2.6 with GIF generation and new editing controls across ChatGPT and its API. Handy if programmatic image editing is part of your application pipeline.",
+      "url": "https://openai.com/index/introducing-images-2-6/",
+      "label": "Read",
+      "source": "Hacker News",
+      "title": "Images 2.6"
+    },
+    {
+      "body": "Ricursive Intelligence spent $32 million to train Ripple-65B Preview, reaching an 80.52 score on TerminalBench 2.1. A sharp alternative to MoE setups if you need strong coding performance on local workstations.",
+      "url": "https://www.ricursive.com/ripple",
+      "label": "Link",
+      "source": "Hacker News",
+      "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding"
+    },
+    {
+      "body": "The llama.cpp and ggml libraries reached version 1.0.0 and adopted strict semantic versioning for their public C APIs. A welcome change for downstream maintainers tired of sudden interface breaks.",
+      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+      "label": "Read",
+      "source": "Hugging Face blog",
+      "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem"
+    },
+    {
+      "body": "AWS released an official Rust-based service emulator, developed using an agent swarm that produced 29,684 commits in three weeks. Worth integrating into your local CI pipeline to avoid paid cloud sandboxes.",
+      "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/",
+      "label": "Link",
+      "source": "Simon Willison",
+      "title": "aws-emulator"
+    }
+  ]
+}
